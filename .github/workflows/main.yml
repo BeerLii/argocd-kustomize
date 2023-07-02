@@ -32,7 +32,7 @@ jobs:
       - name: Obtain Latest Git ONLY within container for checkout
         run: |
           apt-get update
-          apt-get install -y git
+          apt-get install -y git curl
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
         if: ${{ github.event.inputs.image }}
