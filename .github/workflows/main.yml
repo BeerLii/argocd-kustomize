@@ -49,7 +49,6 @@ jobs:
       - name: check status
         if: ${{ github.event.inputs.image }}
         run: |
-          git status
           cat kustomization.yaml
           ls -al
       
