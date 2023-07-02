@@ -45,6 +45,7 @@ jobs:
           chmod +x kustomize
           ./kustomize edit set image ${{ github.event.inputs.image }}:${{ github.event.inputs.sha-tag }}
           rm -f kustomize
+          pwd
 
       - name: check status
         if: ${{ github.event.inputs.image }}
