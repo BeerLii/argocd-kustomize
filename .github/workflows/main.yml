@@ -48,7 +48,7 @@ jobs:
         if: ${{ github.event.inputs.image }}
         run: |
           git status
-          cat deployment.yaml
+          cat kustomization.yaml
           ls -al
       
       - name: Git Commit/Push Changes
