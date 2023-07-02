@@ -26,7 +26,7 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    container: ubuntu:20.04
+    container: ubuntu:latest
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Obtain Latest Git ONLY within container for checkout
@@ -51,6 +51,7 @@ jobs:
         run: |
           cat kustomization.yaml
           ls -al
+          
       
       - name: Git Commit/Push Changes
         uses: actions-x/commit@v2
