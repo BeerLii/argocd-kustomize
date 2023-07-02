@@ -45,6 +45,7 @@ jobs:
           chmod +x kustomize
           ./kustomize edit set image ${{ github.event.inputs.image }}:${{ github.event.inputs.sha-tag }}
           rm -f kustomize
+          git config --global --add safe.directory /__w/argocd-kustomize/argocd-kustomize
           git add .
           git commit -m "test"
           git push origin
