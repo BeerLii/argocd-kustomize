@@ -36,6 +36,13 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
         if: ${{ github.event.inputs.image }}
+
+      - uses: fregante/setup-git-token@v1
+        if: ${{ github.event.inputs.image }}
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          name: The Bot
+          email: bot@example.com
       
       - name: kustomize edit
         if: ${{ github.event.inputs.image }}
