@@ -53,13 +53,28 @@ jobs:
           chmod +x kustomize
           ./kustomize edit set image ${{ github.event.inputs.image }}:${{ github.event.inputs.sha-tag }}
           rm -f kustomize
-          git config --global --add safe.directory $(realpath .)
-          
-      - name: Git Commit&Push Changes
-        uses: actions-x/commit@v2
+      - name: Git Commit Push Action
         if: ${{ github.event.inputs.image }}
+  # You may pin to the exact commit or the version.
+  # uses: GuillaumeFalourd/git-commit-push@205c043bca2f932f7a48a28a8d619ba30eb84baf
+        uses: GuillaumeFalourd/git-commit-push@v1.3
         with:
-           message: "kustomize set image to ${{ github.event.inputs.image }}:${{ github.event.inputs.sha-tag }}"
+    # Committer's email addres
+          mail: 735964033@qq.com
+    # Committer's username
+          name: BeerLii
+    # Commit message
+          commit_message: "kustomize set image to ${{ github.event.inputs.image }}:${{ github.event.inputs.sha-tag }}"
+    # Branch to push the changes back to
+          target_branch: main
+          access_token: ${{ secrets.CI_TOKEN }}
+
+          
+#       - name: Git Commit&Push Changes
+#         uses: actions-x/commit@v2
+#         if: ${{ github.event.inputs.image }}
+#         with:
+#            message: "kustomize set image to ${{ github.event.inputs.image }}:${{ github.event.inputs.sha-tag }}"
 
 
 #      - name: check status
