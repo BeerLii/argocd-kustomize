@@ -7,4 +7,4 @@ resources:
 - secret.yaml
 images:
 - name: bwei/flask-demo
-  newTag: 9be01f8356d7a87c80496997f6a45d57b062ee7c
+  newTag: afad488bcb7b8c7a8831469f9d61880b62330431
