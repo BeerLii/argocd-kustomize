@@ -60,7 +60,7 @@ jobs:
         uses: GuillaumeFalourd/git-commit-push@v1.3
         with:
     # Committer's email addres
-          mail: 735964033@qq.com
+          email: 735964033@qq.com
     # Committer's username
           name: BeerLii
     # Commit message
