@@ -28,10 +28,10 @@ jobs:
     runs-on: ubuntu-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Obtain Latest Git ONLY within container for checkout
-        run: |
-          apt-get update
-          apt-get install -y git curl
+#       - name: Obtain Latest Git ONLY within container for checkout
+#         run: |
+#           apt-get update
+#           apt-get install -y git curl
           
       
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -53,6 +53,8 @@ jobs:
           chmod +x kustomize
           ./kustomize edit set image ${{ github.event.inputs.image }}:${{ github.event.inputs.sha-tag }}
           rm -f kustomize
+          git config --global --add safe.directory $(realpath .)
+          
       - name: Git Commit&Push Changes
         uses: actions-x/commit@v2
         if: ${{ github.event.inputs.image }}
